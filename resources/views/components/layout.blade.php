@@ -20,18 +20,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         {{-- Css link --}}
-        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}"> {{-- For NavBar, Footer, SideBar and RightNavBar --}}
 
         @livewireStyles
     </head>
     <body>
-        {{-- Navigation bar --}}
-        <livewire:navbar />
         <main>
             {{ $slot }}
         </main>
-        
-        <livewire:footer />
         {{-- Bootstrap js CDN  --}}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
         <script src="{{ asset("js/main.js") }}"></script>

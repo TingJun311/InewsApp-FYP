@@ -5,7 +5,11 @@
         <span class="fas fa-bars"></span>
     </div>
     <div class="logo">
-        Inews
+        <a href="/">
+            <strong>
+                Inews
+            </strong>
+        </a>
     </div>
     <div class="nav-items">
         <li><a href="#">Home</a></li>
@@ -22,6 +26,7 @@
             </button>
             <div class="dropdown-content">
                 <a href="#">Settings</a>
+                <a href="#">BookMarks</a>
                 <a href="#">Profile</a>
                 <a href="#">Log Out</a>
             </div>
@@ -30,7 +35,7 @@
         <div class="float-end">
             <div class="nav-items">
                 <li>
-                    <a href="#">Sign In</a>
+                    <a href="/signIn">Sign In</a>
                 </li>
             </div>
         </div>
