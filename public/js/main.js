@@ -9,6 +9,7 @@ menuBtn.onclick = () => {
     menuBtn.classList.add("hide");
     searchBtn.classList.add("hide");
     cancelBtn.classList.add("show");
+    console.log('menu');
 };
 cancelBtn.onclick = () => {
     items.classList.remove("active");
@@ -23,4 +24,3 @@ searchBtn.onclick = () => {
     searchBtn.classList.add("hide");
     cancelBtn.classList.add("show");
 };
-

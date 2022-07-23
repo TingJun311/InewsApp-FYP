@@ -7,8 +7,7 @@
     font-family: "Montserrat", sans-serif;
 }
 body {
-    background: #f2f2f2;
-    margin: auto;
+    background: whitesmoke;
 }
 main {
     margin: auto;
@@ -243,13 +242,14 @@ nav .logo.space {
 .content .space {
     margin: 10px 0;
 }
-.dropdown {
+
+.userMenu {
     float: left;
     overflow: hidden;
 }
 
 /* Dropdown button */
-.dropdown .dropbtn {
+.userMenu .buttonDrop {
     font-size: 16px;
     border: none;
     outline: none;
@@ -259,7 +259,7 @@ nav .logo.space {
     font-family: inherit; /* Important for vertical align on mobile phones */
     margin: 0; /* Important for vertical align on mobile phones */
 }
-.dropdown-content {
+.userContent {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -269,24 +269,24 @@ nav .logo.space {
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+.userContent a {
     float: none;
-    color: white;
+    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
 }
+/* Show the dropdown menu on hover */
+.userMenu:hover .userContent {
+    display: block;
+}
 
 /* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
+.userContent a:hover {
     background-color: #ddd;
 }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 img {
     border-radius: 50%;
     border: 2px solid #555;

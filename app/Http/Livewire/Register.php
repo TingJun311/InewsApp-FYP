@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use GuzzleHttp\Psr7\Request;
 use Livewire\Component;
 
@@ -40,5 +41,16 @@ class Register extends Component
 
     public function createUser() {
         $formValue = $this->validate();
+
+        // Hash password
+        $formValue['password'] = bcrypt($formValue['password']);
+
+        // Create user
+        $user = User::create($formValue);
+
+        // Login
+        auth()->login($user);
+        session()->flash('message', 'Sign Up successfully');
+        return redirect()->to('/');
     }
 }

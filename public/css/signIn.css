@@ -395,7 +395,7 @@ body {
 }
 
 .btnLoading {
-
+    z-index: -99999;
     background: #969696;
     color: red;
 }

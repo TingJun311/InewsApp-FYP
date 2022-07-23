@@ -11,4 +11,8 @@ class Bookmark extends Model
 
     protected $fillable = ['user_id', 'author', 'title', 'description', 'url', 'urlToImage'];
     
+    // Relationship to user
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

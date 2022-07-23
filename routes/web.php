@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OauthController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,9 +20,17 @@ Route::get('/', function () {
 });
 
 // Log in page
-Route::get('/signIn', [UsersController::class, 'showSignIn']);
+Route::get('/signIn', [UsersController::class, 'showSignIn'])->name('login')->middleware('guest');
 
 // Register page
-Route::get('/register', [UsersController::class, 'showRegister']);
-// Registration
-Route::get('/register/newUser', [UsersController::class, 'showRegister']);
+Route::get('/register', [UsersController::class, 'showRegister'])->middleware('guest');
+
+// logUser out
+Route::post('/logout', [UsersController::class, 'logUserOut'])->middleware('auth');
+
+// Sign in user
+Route::post('/user/login/authenticate', [UsersController::class, 'authenticate'])->middleware('guest');
+
+// Oauth Google
+Route::get('/auth/google', [OauthController::class, 'loginWithGoogle'])->middleware('guest');
+Route::get('/auth/google/callback', [OauthController::class, 'callBackGoogle'])->middleware('guest');

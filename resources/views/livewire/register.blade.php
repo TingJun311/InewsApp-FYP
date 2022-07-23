@@ -34,7 +34,7 @@
                 <label for="username">Username <span class="required-star">*</span></label>
                 <input 
                     wire:model="name"
-                    {{-- name="name" --}}
+                    name="name"
                     autocomplete="off" 
                     type="text" 
                     id="username errorBx"
@@ -102,11 +102,9 @@
                 @enderror
             </div>
 
-            <div wire:loading.attr="disabled">
-                <button class="rounded-button login-cta" type="submit" >
-                    <a href="#" class="loginBtn" wire:loading.class="btnLoading">Sign Up</a>
-                </button>
-            </div>
+            <button class="rounded-button login-cta" type="submit">
+                <a href="#" class="loginBtn">Sign Up</a>
+            </button>
             
             <div class="login-form-group single-row">
                 <div class="custom-check">

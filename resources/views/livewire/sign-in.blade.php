@@ -27,7 +27,7 @@
                 <span>or Sign in with Email</span>
             </div>
 
-            <form action="" method="POST">
+            <form action="/user/login/authenticate" method="POST">
                 @csrf
                 <div class="login-form-group">
                     <label for="email">Email <span class="required-star">*</span></label>
@@ -49,7 +49,7 @@
                     <label for="pwd">Password <span class="required-star">*</span></label>
                     <input 
                         autocomplete="off" 
-                        type="text" 
+                        type="password" 
                         placeholder="Minimum 8 characters" 
                         id="pwd"
                         name="password"

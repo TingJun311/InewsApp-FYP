@@ -1,5 +1,4 @@
 
-
 <nav>
     <div class="menu-icon">
         <span class="fas fa-bars"></span>
@@ -19,16 +18,19 @@
         <li><a href="#">Feedback</a></li>
     </div>
     @auth
-        <div class="dropdown">
-            <button class="dropbtn">
+        <div class="userMenu">
+            <button class="buttonDrop">
                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="30" height="30">
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-content">
+            <div class="userContent">
                 <a href="#">Settings</a>
                 <a href="#">BookMarks</a>
                 <a href="#">Profile</a>
-                <a href="#">Log Out</a>
+                <form action="/logout" method="post">
+                    @csrf
+                    <button type="submit">Log Out</button>
+                </form>
             </div>
         </div>     
     @else
