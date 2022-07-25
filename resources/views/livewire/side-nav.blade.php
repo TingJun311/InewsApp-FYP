@@ -1,30 +1,30 @@
 
 <div class="sideNav">
     <li>
-        <a href="">Latest</a>
+        <a href="" class="{{ $categories['latest'] }}" >Latest</a>
     </li>
     <li>
-        <a href="">War in Ukraine</a>
+        <a href="" class="{{ $categories['war in ukraine'] }}" >War in Ukraine</a>
     </li>
     <li>
-        <a href="">Coronavirus</a>
+        <a href="" class="{{ $categories['coronavirus'] }}" >Coronavirus</a>
     </li>
     <li>
-        <a href="">Climate</a>
+        <a href="" class="{{ $categories['climate'] }}" >Climate</a>
     </li>
     <li>
-        <a href="">Business</a>
+        <a href="" class="{{ $categories['business'] }}" >Business</a>
     </li>
     <li>
-        <a href="">Technology</a>
+        <a href="" class="{{ $categories['technology'] }}" >Technology</a>
     </li>
     <li>
-        <a href=""> Sciences</a>
+        <a href="" class="{{ $categories['sciences'] }}" > Sciences</a>
     </li>
     <li>
-        <a href="">Health</a>
+        <a href="" class="{{ $categories['health'] }}" >Health</a>
     </li>
     <li>
-        <a href="">Entertainment</a>
+        <a href="" class="{{ $categories['entertainment'] }}" >Entertainment</a>
     </li>
 </div>

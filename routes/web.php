@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OauthController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('main');
 });
+
+// Article
+Route::post("/news/articles/", [NewsController::class, 'showNews']);
 
 // Log in page
 Route::get('/signIn', [UsersController::class, 'showSignIn'])->name('login')->middleware('guest');

@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -46,5 +47,21 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    public function render($request, Throwable $e)
+    // To handle post request when user re-enter the url error
+    {
+        if ($e instanceof MethodNotAllowedHttpException) 
+        {
+            // return response()->json( [
+            //                             'success' => 0,
+            //                             'message' => 'Method is not allowed for the requested route',
+            //                         ], 405 );
+
+            return redirect('/');
+        }
+
+        return parent::render($request, $e);
     }
 }
