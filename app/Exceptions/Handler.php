@@ -2,9 +2,10 @@
 
 namespace App\Exceptions;
 
+use Throwable;
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
-use Throwable;
 
 class Handler extends ExceptionHandler
 {
@@ -60,6 +61,10 @@ class Handler extends ExceptionHandler
             //                         ], 405 );
 
             return redirect('/');
+        }
+
+        if ($e instanceof ConnectionException) {
+            return abort(502);
         }
 
         return parent::render($request, $e);

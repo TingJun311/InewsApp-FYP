@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OauthController;
 use App\Http\Controllers\UsersController;
@@ -22,6 +23,12 @@ Route::get('/', function () {
 
 // Article
 Route::post("/news/articles/", [NewsController::class, 'showNews']);
+
+// For auth users bookmarks
+Route::get("/bookmarks/{userId}", [BookmarkController::class, 'viewBookmarks'])->middleware('auth');
+
+// When user search
+Route::get('/search', [NewsController::class, 'showResult']);
 
 // Log in page
 Route::get('/signIn', [UsersController::class, 'showSignIn'])->name('login')->middleware('guest');

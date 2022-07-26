@@ -118,7 +118,7 @@ nav .search-icon {
         height: 100%;
         padding: 10px 50px 0 50px;
         text-align: center;
-        background: #14181f;
+        background: gray;
         display: inline-block;
         transition: left 0.3s ease;
     }
@@ -382,4 +382,9 @@ nav .logo.space {
 .zoom-effect-container:hover .image-card img {
     -webkit-transform: scale(1.08);
     transform: scale(1.08);
+}
+
+#searchForm {
+    /* position: relative; */
+    z-index: 1;
 }

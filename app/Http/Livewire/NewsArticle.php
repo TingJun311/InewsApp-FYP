@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Bookmark;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\ConnectionException;
 
@@ -45,6 +46,13 @@ class NewsArticle extends Component
     }
 
     public function bookmark () {
-        
+        Bookmark::create([
+            'user_id' => auth()->id(),
+            'author' => (empty($this->data['article']['authors'][0]))? null : $this->data['article']['authors'][0] ,
+            'title' => $this->data['article']['title'],
+            'description' => $this->data['article']['text'],
+            'url' => $this->link,
+            'urlToImage' => $this->data['article']['top_image'],
+        ]);
     }
 }

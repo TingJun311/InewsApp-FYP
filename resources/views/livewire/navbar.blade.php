@@ -25,7 +25,7 @@
             </button>
             <div class="userContent">
                 <a href="#">Settings</a>
-                <a href="#">BookMarks</a>
+                <a href="/bookmarks/{{ auth()->id() }}">BookMarks</a>
                 <a href="#">Profile</a>
                 <form action="/logout" method="post">
                     @csrf
@@ -48,8 +48,10 @@
     <div class="cancel-icon">
         <span class="fas fa-times"></span>
     </div>
-    <form action="#">
-        <input type="search" class="search-data" placeholder="Search" required>
+    <form action="/search" id="searchForm" method="GET">
+        <input type="search" name="query" class="search-data" placeholder="Search" required>
+        <input type="hidden" name="page" value='1' >
+        <input type="hidden" name="lang" value="en" >
         <button type="submit" class="fas fa-search"></button>
     </form>
 </nav>
