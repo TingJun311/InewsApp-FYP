@@ -8,7 +8,7 @@ use Illuminate\Http\Client\ConnectionException;
 
 class SearchResult extends Component
 {
-    public $query, $page, $lang, $data;
+    public $query, $page, $lang, $data, $loading = true;
 
     public function render()
     {
@@ -41,6 +41,7 @@ class SearchResult extends Component
 
         if($response->successful()) {
             $this->data = $response->json();
+            $this->loading = false;
         };
     }
 }

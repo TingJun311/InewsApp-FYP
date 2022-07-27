@@ -30,6 +30,9 @@ Route::get("/bookmarks/{userId}", [BookmarkController::class, 'viewBookmarks'])-
 // When user search
 Route::get('/search', [NewsController::class, 'showResult']);
 
+// When user selected the news categories
+Route::get("/category", [NewsController::class, 'showResult']);
+
 // Log in page
 Route::get('/signIn', [UsersController::class, 'showSignIn'])->name('login')->middleware('guest');
 
@@ -41,6 +44,9 @@ Route::post('/logout', [UsersController::class, 'logUserOut'])->middleware('auth
 
 // Sign in user
 Route::post('/user/login/authenticate', [UsersController::class, 'authenticate'])->middleware('guest');
+
+// User profile
+Route::get("/user/profile/{userId}", [UsersController::class, 'showProfile'])->middleware('auth');
 
 // Oauth Google
 Route::get('/auth/google', [OauthController::class, 'loginWithGoogle'])->middleware('guest');

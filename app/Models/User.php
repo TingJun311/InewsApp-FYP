@@ -23,6 +23,8 @@ class User extends Authenticatable
         'password',
         'provider_id',
         'provider',
+        'profile_path',
+        'lang',
     ];
 
     /**
@@ -43,6 +45,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // protected $touches = ['user'];
 
     // Relationship with Bookmarks
     public function bookmarks() {

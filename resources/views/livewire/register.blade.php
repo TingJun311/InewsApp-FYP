@@ -102,12 +102,10 @@
                 @enderror
             </div>
 
-            <div wire:loading.attr="disabled">
                 <button class="rounded-button login-cta" type="submit">
                     Sign Up
                     {{-- <a href="#" class="loginBtn">Sign Up</a> --}}
                 </button>
-            </div>
             
             <div class="login-form-group single-row">
                 <div class="custom-check">

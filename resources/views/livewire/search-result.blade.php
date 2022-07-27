@@ -6,5 +6,26 @@
             </div>
         </div>
     </div>
-    {{-- {{ print_r($data) }} --}}
+
+    @unless ($data == null)
+        {{-- {{ dd($data) }} --}}
+        @if ($data['status'] == 'ok')
+            <div class="d-flex align-content-around justify-content-evenly flex-wrap">
+                @foreach ($data['articles'] as $article)
+                    <div class="p-2">
+                        <div class="card">
+                            <img src="{{ $article['media'] }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $article['title'] }}</h5>
+                                <p class="card-text">
+                                    {{ $article['summary'] }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @else
+        @endif
+    @endunless        
 </div>

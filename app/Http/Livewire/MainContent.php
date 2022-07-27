@@ -2,14 +2,15 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\ConnectionException;
 
 class MainContent extends Component
 {
-    public $data;
-    public $loadScreen = true;
+    public $data, $loadScreen = true, $user;
 
     public $query = [
         'q' => 'coronavirus',
@@ -17,6 +18,12 @@ class MainContent extends Component
         'page' => 1,
     ];
 
+    // Lang available 
+    // German == de
+    // japan == ja
+    // French == fr
+    // Italian == it
+    // Spanish == es
     public $pagination = [
         'next' => null,
         'previous' => null,
@@ -30,6 +37,11 @@ class MainContent extends Component
 
     public function fetchNews() {
         $this->emit('refreshComponent');
+
+        if (Auth::check()) {
+            $this->user = User::find(auth()->id());
+            $this->query['lang'] = $this->user->lang;
+        }
         $response = Http::retry(3, 5000, function ($exception, $request) {
                         return $exception instanceof ConnectionException; 
                     })

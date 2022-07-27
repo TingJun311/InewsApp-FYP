@@ -20,19 +20,77 @@
     @auth
         <div class="userMenu">
             <button class="buttonDrop">
-                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="30" height="30">
+                <img 
+                    src="{{ ($userData->profile_path)? asset('storage/' . $userData->profile_path) : asset('images/default1.png') }}" 
+                    width="30" 
+                    height="30"
+                >
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="userContent">
                 <a href="#">Settings</a>
                 <a href="/bookmarks/{{ auth()->id() }}">BookMarks</a>
-                <a href="#">Profile</a>
-                <form action="/logout" method="post">
-                    @csrf
-                    <button type="submit">Log Out</button>
-                </form>
+                <a href="#">
+                    <button 
+                        type="button" 
+                        data-bs-toggle="offcanvas" 
+                        data-bs-target="#offcanvasRight" 
+                        aria-controls="offcanvasRight"
+                    >
+                        Profile
+                    </button>
+                </a>
             </div>
         </div>     
+
+        {{-- Profile offcanvas --}}
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="text-center">
+                            <img 
+                                src="{{ ($userData->profile_path)? asset('storage/' . $userData->profile_path) : asset('images/default1.png') }}" 
+                                class="img-fluid" 
+                                alt="Your profile image" 
+                                id="profileImage"
+                                disable
+                            >
+                            <br>
+                            <h5>{{ $userData->name }}</h5>
+                            <p>{{ $userData->email }}</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="d-flex ">
+                        <div class="p-3 d-flex justify-content-center">
+                            Bookmark: {{ count($userBookmarkCount) }}
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <div class="p-3">
+                            <a href="/user/profile/{{ auth()->id() }}">View Profile</a>
+                        </div>
+                        <div class="p-3">
+                            <a href="/bookmarks/{{ auth()->id() }}">BookMarks</a>
+                        </div>
+                        <div class="p-3">
+                            <a href="/user/settings">Settings</a>
+                        </div>
+                        <div class="p-3">
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit">Log Out</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     @else
         <div class="float-end">
             <div class="nav-items">

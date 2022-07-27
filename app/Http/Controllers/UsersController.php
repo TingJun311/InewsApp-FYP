@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -38,5 +39,14 @@ class UsersController extends Controller
         return back()->withErrors([
             'email' => 'Invalid Credentials'
         ])->onlyInput('email');
+    }
+
+    public function showProfile ($userId) {
+
+        if ($userId == auth()->id()) {
+            return view('users.profile');
+        } else {
+            abort(403, "Unauthorized Action");
+        }
     }
 }

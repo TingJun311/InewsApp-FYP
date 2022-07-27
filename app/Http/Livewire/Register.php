@@ -44,6 +44,7 @@ class Register extends Component
 
         // Hash password
         $formValue['password'] = bcrypt($formValue['password']);
+        $formValue['lang'] = 'en';
 
         // Create user
         $user = User::create($formValue);
