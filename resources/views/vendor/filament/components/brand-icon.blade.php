@@ -1,0 +1,1 @@
+<img src="{{ asset('images/favicon_io/android-chrome-192x192.png') }}" alt="Icon" class="h-full w-full object-contain" />

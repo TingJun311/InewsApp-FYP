@@ -13,8 +13,15 @@ class EditProfile extends Component
         $profileImages, 
         $userName, 
         $lang, 
-        $displayLang,
         $selectedLang;
+
+    public $displayLang = [
+        'en' => null,
+        'de' => null,
+        'fr' => null,
+        'es' => null,
+        'it' => null,
+    ];
 
 
     protected $rules = [
@@ -41,28 +48,27 @@ class EditProfile extends Component
             $this->userData->profile_path = $path;
         }   
 
-        if ($this->selectedLang != null) {
-            $this->userData->lang = $this->selectedLang;
-        }
+        $this->userData->lang = $this->lang;
+        $this->userData->updated_at = now();
         $this->userData->save();
     }
 
     public function checkLang () {
         switch ($this->lang) {
             case 'en':
-                $this->displayLang = 'English';
+                $this->displayLang['en'] = 'selected';
                 break;
             case 'de':
-                $this->displayLang = 'German';
+                $this->displayLang['de'] = 'selected';
                 break;
             case 'fr':
-                $this->displayLang = 'French';
+                $this->displayLang['fr'] = 'selected';
                 break;
             case 'es':
-                $this->displayLang = 'Spanish';
+                $this->displayLang['es'] = 'selected';
                 break;
             case 'it':
-                $this->displayLang = 'Italian';
+                $this->displayLang['it'] = 'selected';
                 break;
         }
     }

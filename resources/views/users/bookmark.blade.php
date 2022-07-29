@@ -1,5 +1,8 @@
 
 <x-layout>
-    <p>{{ $userId }}</p>
-    <p>{{ $bookmarks }}</p>
+    <livewire:navbar />
+    <br>
+    <livewire:bookmarks />
+    <br>
+    <livewire:footer />
 </x-layout>

@@ -16,7 +16,7 @@
         <div wire:loading.remove>
             <div class="container-fiuld">
                 <div class="row">
-                    <div class="col-12 col-xxl-3">
+                    <div class="col-12 col-xxl-2">
                         <livewire:side-nav :userInput="$data['user_input']"/>
                     </div>
                     <div class="col-12 col-xxl-7">
@@ -147,10 +147,8 @@
                             </div>
                         @endunless
                     </div>
-                    <div class="col-12 col-xxl-2">
-                        {{-- <div wire:poll.1000ms>
-                            Current time: {{ now() }}
-                        </div> --}}
+                    <div class="col-12 col-xxl-3">
+                        <livewire:weather />
                     </div>
                 </div>
             </div>

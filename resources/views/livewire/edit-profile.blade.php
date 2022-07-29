@@ -28,18 +28,21 @@
             </div>
             <div class="p-2">
                 <label for="lang">Language: </label>
-                <select name="lang" id="lang" wire:model.lazy="selectedLang" value="{{ $displayLang }}">
-                    <option value="en">English</option>
-                    <option value="de">German</option>
-                    <option value="fr">French</option>
-                    <option value="es">Spanish</option>
-                    <option value="it">Italian</option>
+                <select name="lang" id="lang" wire:model.lazy="lang">
+                    <option value="en" {{ $displayLang['en'] }}>English</option>
+                    <option value="de" {{ $displayLang['de'] }}>German</option>
+                    <option value="fr" {{ $displayLang['fr'] }}>French</option>
+                    <option value="es" {{ $displayLang['es'] }}>Spanish</option>
+                    <option value="it" {{ $displayLang['it'] }}>Italian</option>
                 </select>
             </div>
+            {{ $userData->updated_at->diffForHumans() }}
+            <livewire:live-time />
         </div>
         <button type="submit" wire:loading.remove>
             Save
         </button>
+        <livewire:weather />
         <div wire:loading wire:target="editUserProfile">
             <p>Updating...</p>
         </div>

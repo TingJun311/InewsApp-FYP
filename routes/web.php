@@ -24,6 +24,9 @@ Route::get('/', function () {
 // Article
 Route::post("/news/articles/", [NewsController::class, 'showNews']);
 
+// Get a specific articles
+Route::get('/article/news', [NewsController::class, 'viewNews']);
+
 // For auth users bookmarks
 Route::get("/bookmarks/{userId}", [BookmarkController::class, 'viewBookmarks'])->middleware('auth');
 

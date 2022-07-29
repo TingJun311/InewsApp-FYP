@@ -17,6 +17,12 @@ class NewsController extends Controller
         ]);
     }
 
+    public function viewNews (Request $request) {
+        return view('news.article', [
+            'link' => $request['url'],
+        ]);
+    }
+
     public function showResult (Request $request) {
         return view('news.search', [
             'query' => $request['query'],

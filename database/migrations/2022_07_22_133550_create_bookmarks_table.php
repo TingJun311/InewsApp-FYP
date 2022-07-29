@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('author')->nullable();
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
-            $table->string('url')->nullable();
-            $table->string('urlToImage')->nullable();
+            $table->longText('url')->nullable();
+            $table->longText('urlToImage')->nullable();
         });
     }
 

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
-            $table->string('lang');
+            $table->string('lang')->nullable();
         });
     }
 
