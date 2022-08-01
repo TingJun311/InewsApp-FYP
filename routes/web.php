@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\BookmarkController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\OauthController;
 use App\Http\Controllers\UsersController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookmarkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,9 @@ Route::get('/search', [NewsController::class, 'showResult']);
 
 // When user selected the news categories
 Route::get("/category", [NewsController::class, 'showResult']);
+
+// Inews Blogs page
+Route::get('/blogs', [BlogsController::class, 'showBlogs']);
 
 // Log in page
 Route::get('/signIn', [UsersController::class, 'showSignIn'])->name('login')->middleware('guest');

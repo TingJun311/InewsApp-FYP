@@ -12,9 +12,7 @@
     </div>
     <div class="nav-items">
         <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Blogs</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="/blogs">Blogs</a></li>
         <li><a href="#">Feedback</a></li>
     </div>
     @auth

@@ -61,4 +61,9 @@ class User extends Authenticatable implements FilamentUser
     public function bookmarks() {
         return $this->hasMany(Bookmark::class, 'user_id');
     }
+
+    // Relationship to comments
+    public function comments() {
+        return $this->hasMany(Comment::class, 'user_id');
+    }
 }
