@@ -27,9 +27,16 @@
                     </div>
                     <div class="col-2 d-flex align-items-center text-center justify-content-center">
                         @auth
-                            <button wire:click="bookmark" wire:loading.remove>
-                                <i class="fa-regular fa-bookmark icon"></i>
-                            </button>
+                            @if ($isBookmarked == true)
+                                <i class="fa-solid fa-check"></i>
+                            @else 
+                                <button wire:click="bookmark" wire:loading.remove>
+                                    <i class="fa-regular fa-bookmark icon"></i>
+                                </button>
+                            @endif
+                            {{-- @error('link')
+                                <p>{{}}</p>
+                            @enderror --}}
                         @else
                             <!-- Button trigger modal -->
                             <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">

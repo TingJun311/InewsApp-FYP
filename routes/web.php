@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 // Article
-Route::post("/news/articles/", [NewsController::class, 'showNews']);
+Route::get("/news/articles/", [NewsController::class, 'showNews']);
 
 // Get a specific articles
 Route::get('/article/news', [NewsController::class, 'viewNews']);

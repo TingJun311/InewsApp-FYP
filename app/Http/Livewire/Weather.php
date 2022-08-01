@@ -26,10 +26,12 @@ class Weather extends Component
         'userInput.required' => 'Input field required'
     ];
 
+    protected $listeners = ['weatherInput' => 'getInputWeather'];
+
     public function render() {
         return view('livewire.weather');
     }
-    public function mount () {
+    public function booted () {
         // $this->ip = request()->ip();
         $this->ip = (array)Location::get(env('IP'));
         if (Auth::check()) {
@@ -39,15 +41,17 @@ class Weather extends Component
         $this->query['q'] =  $this->ip['regionName'];
         $this->query['days'] = 3;
         $this->query['lang'] = ($this->user)? $this->user->lang : 'en';
+
     }
 
     public function getWeather () {
 
         if ($this->validatedInput != null) {
             $this->query['q'] = $this->validatedInput;
+            $this->validatedInput = null;
         }
 
-        try {
+        // try {
             $response = Http::retry(3, 5000, function ($exception, $request) {
                     return $exception instanceof ConnectionException; 
                 })
@@ -58,26 +62,27 @@ class Weather extends Component
                 ->get('https://weatherapi-com.p.rapidapi.com/forecast.json', $this->query);
     
             if ($response->failed()) {
-                return back();
+                $response->throw();
             };
     
             if ($response->clientError() || $response->serverError()) {
-                return redirect('/');
+                $response->throw();
             };
     
             if($response->successful()) {
                 $this->weatherData = $response->json();
             };
 
-        } catch (Throwable $e) {
-            return redirect('/')->with('message', 'Invalid input');
-        }
+        // } catch (Throwable $e) {
+        //     $this->booted();
+        // }
     }
 
     public function getInputWeather () {
         $this->validate(); // If this validation not passed it wont go to the new line of code 
         
         $this->validatedInput = $this->userInput;
+        $this->userInput = null;
         $this->getWeather();
     }
 }

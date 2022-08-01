@@ -13,7 +13,7 @@ class NewsController extends Controller
 {
     public function showNews (Request $request) {
         return view('news.article', [
-            'link' => $request->link,
+            'link' => $request['link'],
         ]);
     }
 

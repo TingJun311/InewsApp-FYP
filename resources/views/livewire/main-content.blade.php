@@ -85,7 +85,7 @@
                                     <div class="row g-0">
                                         <div class="col-md-12">
                                             <div class="card-body">
-                                                <form action="/news/articles" method="post">
+                                                <form action="/news/articles" method="get">
                                                     @csrf
                                                     <input type="hidden" name="link" value="{{ $articles[$i]['link'] }}">
                                                     <button type="submit" class="card-title">
