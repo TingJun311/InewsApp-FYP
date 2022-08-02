@@ -23,7 +23,7 @@ class Weather extends Component
         'userInput' => 'required',
     ];
     protected $messages = [
-        'userInput.required' => 'Input field required'
+        'userInput.required' => 'You are not entering a valid city or location'
     ];
 
     protected $listeners = ['weatherInput' => 'getInputWeather'];
@@ -51,7 +51,7 @@ class Weather extends Component
             $this->validatedInput = null;
         }
 
-        // try {
+        try {
             $response = Http::retry(3, 5000, function ($exception, $request) {
                     return $exception instanceof ConnectionException; 
                 })
@@ -73,9 +73,10 @@ class Weather extends Component
                 $this->weatherData = $response->json();
             };
 
-        // } catch (Throwable $e) {
-        //     $this->booted();
-        // }
+        } catch (Throwable $e) {
+            session()->flash('message', 'Invalid City or Location');
+            $this->userInput = null;
+        }
     }
 
     public function getInputWeather () {

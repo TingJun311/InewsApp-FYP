@@ -29,13 +29,11 @@
         {{-- Css link --}}
         <link rel="stylesheet" href="{{ asset('css/main.css') }}"> {{-- For NavBar, Footer, SideBar and RightNavBar --}}
 
+        {{-- Alpine JS  --}}
+        <script src="//unpkg.com/alpinejs" defer></script>
         @livewireStyles
     </head>
     <body>
-        @if (session()->has('message')) 
-            <p>{{ session('message') }}</p>
-            
-        @endif
         <main>
             {{ $slot }}
         </main>

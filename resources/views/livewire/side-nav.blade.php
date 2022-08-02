@@ -76,7 +76,7 @@
             <input type="hidden" name="query" value="entertainment">
             <input type="hidden" name="page" value="1">
             <input type="hidden" name="lang" value="en">
-            <button type="submit" class="{{ $categories['latest'] }}" >Entertainment</button>
+            <button type="submit" class="{{ $categories['entertainment'] }}" >Entertainment</button>
         </form>
         {{-- <a href="" class="{{ $categories['entertainment'] }}" >Entertainment</a> --}}
     </li>

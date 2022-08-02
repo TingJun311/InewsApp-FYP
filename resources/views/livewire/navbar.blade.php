@@ -104,7 +104,7 @@
     <div class="cancel-icon">
         <span class="fas fa-times"></span>
     </div>
-    <form action="/search" id="searchForm" method="GET">
+    <form action="/search" id="searchForm" method="GET" id="inputSearchBox">
         <input type="search" name="query" class="search-data" placeholder="Search" required>
         <input type="hidden" name="page" value='1' >
         <input type="hidden" name="lang" value="en" >

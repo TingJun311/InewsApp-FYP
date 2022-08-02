@@ -20,16 +20,27 @@
                             id="weatherInput"
                             type="text" 
                             name="userInput" 
-                            wire:model.lazy="userInput" 
-                            placeholder="Enter City or Ip address">
+                            wire:model.defer="userInput" 
+                            placeholder="Enter City or Ip address"
+                            @error('userInput')
+                                value=""
+                            @enderror
+                            >
                         <button wire:click="getInputWeather" class="weatherButton">
                             Enter
                         </button>
                     </div>
                 </div>
                     @error('userInput')
-                        <p id="errorMessage">{{ $message }}</p>
+                        <div class="d-flex">
+                            <div>
+                                {{ $message }}
+                            </div>
+                        </div>
                     @enderror
+
+                <x-flash />
+
             </div>
             <div class="row">
                 <div class="d-flex flex-row justify-content-between">
@@ -86,18 +97,20 @@
 
         #ipLink {
             text-decoration: none;
+            font-size: 0.8rem;
         }
         #ipLink:hover {
             text-decoration-line: underline;
-            text-decoration-thickness: 3px;
+            text-decoration-thickness: 2px;
         }
 
         #weatherInput {
             border: 2px solid #d6d6d6;
+            font-size: 0.8rem;
             border-radius: 50px;
             transition: linear 0.2s;
             box-sizing: border-box;
-            margin: 0.3rem;
+            margin: 0.1rem;
             padding: 0.6rem;
         }
         #weatherInput:focus {
@@ -107,7 +120,7 @@
         }
         .weatherButton {
             border: none;
-            margin: 6px;
+            margin: 3px;
             background: #5138ee;    
             color: #fff;
             padding: 0.2rem;

@@ -24,3 +24,11 @@ searchBtn.onclick = () => {
     searchBtn.classList.add("hide");
     cancelBtn.classList.add("show");
 };
+
+
+// For card hover effect
+$('.cardBox').hover( function () {
+    $('.cardTitle').css(
+        'color', 'black'
+    )
+})

@@ -29,7 +29,7 @@ nav .logo {
 }
 nav .logo a {
     text-decoration: none;
-    color: #4361ee;
+    color: #5138ee;
 }
 nav .nav-items {
     display: flex;
@@ -47,13 +47,13 @@ nav .nav-items li a {
     text-decoration: none;
 }
 nav .nav-items li a:hover {
-    color: #4361ee;
+    color: #5138ee;
 }
 nav form {
     display: flex;
     height: 40px;
     padding: 2px;
-    background: #1e232b;
+    background: #424549;
     min-width: 18% !important;
     border-radius: 2px;
     border: 1px solid rgba(155, 155, 155, 0.2);
@@ -72,13 +72,13 @@ nav form button {
     padding: 0 15px;
     color: #fff;
     font-size: 17px;
-    background: #4361ee;
+    background: #5138ee;
     border: none;
     border-radius: 2px;
     cursor: pointer;
 }
 nav form button:hover {
-    background: #4361ee;
+    background: #1f0098;
 }
 nav .menu-icon,
 nav .cancel-icon,
@@ -287,10 +287,6 @@ nav .logo.space {
     background-color: #ddd;
 }
 
-/* img {
-    border-radius: 50%;
-    border: 2px solid #555;
-} */
 .fa-caret-down {
     color: black;
 }
@@ -302,6 +298,8 @@ nav .logo.space {
     flex-direction: column;
     text-decoration: none;
     margin-top: 3rem;
+    justify-content: end;
+    margin-left: 1.5rem;
 }
 
 .sideNav li {
@@ -317,7 +315,7 @@ nav .logo.space {
     text-decoration: none;
 }
 .sideNav li a:hover {
-    color: #4361ee;
+    color: #5138ee;
 }
 @media (max-width: 800px) {
     .sideNav {
@@ -345,9 +343,18 @@ nav .logo.space {
     }
 }
 
-.sideNav li a.currentActiveTab {
-    color: #4361ee;
-    /* background: red; */
+.sideNav li button.currentActiveTab {
+    color: #5138ee;
+    font-weight: 600;
+}
+.sideNav li button {
+    border: none;
+    background-color: transparent;
+    /* transition: 0.2s ease-in-out; */
+}
+.sideNav li button:hover {
+    font-weight: 600;
+    /* transition: 0.2s ease-in-out; */
 }
 
 #spinners,
@@ -394,3 +401,35 @@ img#profileImage {
     width: 35%;
     border-radius: 50%;
 }
+
+#author {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+#date {
+    font-size: 0.9rem;
+    color: gray;
+}
+.cardTitle button {
+    letter-spacing: 1px;
+    color: #5138ee;
+    font-weight: 500;
+    cursor: pointer;
+}
+.cardTitle button:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
+    color: #1f0098;
+}
+.cardTitle button {
+    border: none;
+    background-color: transparent;
+}
+
+div.cardBox:hover ~ .cardTitle {
+    color: #000;
+}
+
+/* div.cardBox {
+    background: #1f0098;
+} */
