@@ -1,7 +1,7 @@
 #background {
     background-position: center;
     background-size: cover;
-    background: black;
+    background: #424549;
     height: 400px;
     max-width: 100%;
     filter: brightness(70%);
@@ -97,7 +97,7 @@ button {
     border: 0px solid white;
 }
 .icon {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .icon:hover {
