@@ -28,7 +28,6 @@ class Comments extends Component
                                 // ->select('blog_comments*', 'users.name', 'users.profile_path')
                                 ->get();
     }
-
     public function postComment () {
         if (Auth::check()) {
             $this->validate();
