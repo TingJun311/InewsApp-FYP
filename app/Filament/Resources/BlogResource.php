@@ -25,7 +25,9 @@ class BlogResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')->required(),
                 Forms\Components\TextInput::make('about')->required(),
-                Forms\Components\TextInput::make('images')->url(),
+                Forms\Components\FileUpload::make('images')
+                                                ->directory('blogImages')
+                                                ->visibility('public'),
             ]);
     }
 

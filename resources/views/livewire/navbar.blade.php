@@ -14,6 +14,7 @@
         <li><a href="#">Home</a></li>
         <li><a href="/blogs">Blogs</a></li>
         <li><a href="#">Feedback</a></li>
+        <li><a href="/about">About</a></li>
     </div>
     @auth
         <div class="userMenu">

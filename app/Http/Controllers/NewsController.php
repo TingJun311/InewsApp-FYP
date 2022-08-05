@@ -30,4 +30,8 @@ class NewsController extends Controller
             'lang' =>  $request['lang'],
         ]);
     }
+
+    public function showAbout () {
+        return view('Inews.about');
+    }
 }

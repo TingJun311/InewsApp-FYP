@@ -40,6 +40,9 @@ Route::get("/category", [NewsController::class, 'showResult']);
 // Inews Blogs page
 Route::get('/blogs', [BlogsController::class, 'showBlogs']);
 
+// Show Inews about page
+Route::get('/about', [NewsController::class, 'showAbout']);
+
 // Log in page
 Route::get('/signIn', [UsersController::class, 'showSignIn'])->name('login')->middleware('guest');
 

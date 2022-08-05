@@ -41,7 +41,9 @@
                                         <div>
                                             <p>{{ $blog->about }}</p>
                                             <div class="text-center blogImage my-5">
-                                                <img src="{{ asset('images/default1.png') }}" class="img-thumbnail" alt="...">
+                                                @if ($blog->images != null)
+                                                    <img src="{{ asset('storage/' . $blog->images) }}" alt="">
+                                                @endif
                                             </div>
                                             <div class="d-flex flex-row justify-content-between">
                                                 <div></div>
