@@ -1,6 +1,6 @@
 <div wire:init="getBlogs" >
-    <div wire:loading>
-        Laoding...
+    <div wire:loading style="height: 100vh;">
+        <x-laodingScreen />
     </div>
 
     <div class="container">
@@ -74,7 +74,7 @@
                         </div>    
                     @endforeach
                 @else
-                    <p>Error</p>
+                    {{-- <p>Error</p> --}}
                 @endif
             </div>
             <div class="col-3"></div>

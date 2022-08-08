@@ -3,8 +3,12 @@
         use Illuminate\Support\Str;
     @endphp
 
-    <h1>Bookmarks</h1>
-    <div class="container">
+    <div id="bookmarkContainer" class="container mt-5" style="height: 100vh;">
+        <h1>
+            <strong>
+                Bookmarks
+            </strong>
+        </h1>
         @unless (count($userBookmarks) == 0)
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 @foreach ($userBookmarks as $bookmark)
@@ -38,8 +42,8 @@
                             <div class="accordion-body">
                                 {{ Str::limit($bookmark->description, 300, $end="...") }}
                                 {{-- <code>.accordion-flush</code>  --}}
-                                <div class="d-flex flex-row justify-content-between">
-                                    <div class="p-2">
+                                <div class="d-flex btnRow flex-row justify-content-between">
+                                    <div class="p-2 viewBtn">
                                         <form action="/article/news" method="GET">
                                             <input type="hidden" name="url" value="{{ $bookmark->url }}">
                                             <button type="submit">
@@ -47,7 +51,7 @@
                                             </button>
                                         </form>
                                     </div>
-                                    <div class="p-2">
+                                    <div class="p-2 delBtn">
                                         <button wire:loading.remove wire:click="$emit('deleteBookmark', {{ $bookmark->id }})">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
@@ -59,8 +63,9 @@
                 @endforeach
             </div>
         @else
-            <div class="d-flex justify-content-center">
-                <p>No bookmarks</p>
+            <div class="d-flex justify-content-center mt-5">
+                <p>You have 0 bookmarks</p>
+
             </div>
         @endunless
     </div>

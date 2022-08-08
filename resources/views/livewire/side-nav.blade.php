@@ -15,7 +15,6 @@
             <input type="hidden" name="lang" value="en">
             <button type="submit" class="{{ $categories['war in ukraine'] }}" >War in Ukraine</button>
         </form>
-        {{-- <a href="" class="{{ $categories['war in ukraine'] }}" >War in Ukraine</a> --}}
     </li>
     <li>
         <form action="/category" method="get">
@@ -24,7 +23,6 @@
             <input type="hidden" name="lang" value="en">
             <button type="submit" class="{{ $categories['coronavirus'] }}" >Coronavirus</button>
         </form>
-        {{-- <a href="" class="{{ $categories['coronavirus'] }}" >Coronavirus</a> --}}
     </li>
     <li>
         <form action="/category" method="get">
@@ -33,7 +31,6 @@
             <input type="hidden" name="lang" value="en">
             <button type="submit" class="{{ $categories['climate'] }}" >Climate</button>
         </form>
-        {{-- <a href="" class="{{ $categories['climate'] }}" >Climate</a> --}}
     </li>
     <li>
         <form action="/category" method="get">
@@ -42,7 +39,6 @@
             <input type="hidden" name="lang" value="en">
             <button type="submit" class="{{ $categories['business'] }}" >Business</button>
         </form>
-        {{-- <a href="" class="{{ $categories['business'] }}" >Business</a> --}}
     </li>
     <li>
         <form action="/category" method="get">

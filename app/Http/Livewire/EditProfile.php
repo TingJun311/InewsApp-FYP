@@ -33,6 +33,14 @@ class EditProfile extends Component
         return view('livewire.edit-profile');
     }
 
+    public function updated () {
+        if ($this->profileImages != null) {
+            $path = $this->profileImages->store('profilePhoto', 'public');
+            $this->userData->profile_path = $path;
+        }   
+        $this->userData->save();
+    }
+
     public function boot () {
         $this->userData = User::find(auth()->id());
         $this->userName = $this->userData->name;

@@ -13,7 +13,6 @@
     <div class="nav-items">
         <li><a href="#">Home</a></li>
         <li><a href="/blogs">Blogs</a></li>
-        <li><a href="#">Feedback</a></li>
         <li><a href="/about">About</a></li>
     </div>
     @auth
@@ -43,53 +42,48 @@
         </div>     
 
         {{-- Profile offcanvas --}}
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas offcanvas-end" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasRightLabel">Profile</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
-                <div class="d-flex flex-column justify-content-center">
-                    <div class="d-flex justify-content-center">
-                        <div class="text-center">
-                            <img 
-                                src="{{ ($userData->profile_path)? asset('storage/' . $userData->profile_path) : asset('images/default1.png') }}" 
-                                class="img-fluid" 
-                                alt="Your profile image" 
-                                id="profileImage"
-                                disable
-                            >
-                            <br>
-                            <h5>{{ $userData->name }}</h5>
-                            <p>{{ $userData->email }}</p>
-                        </div>
+            <div class="d-flex flex-column justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <img 
+                            src="{{ ($userData->profile_path)? asset('storage/' . $userData->profile_path) : asset('images/default1.png') }}" 
+                            class="img-fluid" 
+                            alt="Your profile image" 
+                            id="profileImage"
+                            disable
+                        >
+                        <br>
+                        <h5>{{ $userData->name }}</h5>
+                        <p>{{ $userData->email }}</p>
+                        <p>Bookmark: {{ count($userBookmarkCount) }}</p>
                     </div>
-                    <br>
-                    <div class="d-flex ">
-                        <div class="p-3 d-flex justify-content-center">
-                            Bookmark: {{ count($userBookmarkCount) }}
-                        </div>
+                </div>
+                <br>
+                <div class="d-flex flex-column">
+                    <div class="p-3">
+                        <a href="/user/profile/{{ auth()->id() }}">View Profile</a>
                     </div>
-                    <div class="d-flex flex-column">
-                        <div class="p-3">
-                            <a href="/user/profile/{{ auth()->id() }}">View Profile</a>
-                        </div>
-                        <div class="p-3">
-                            <a href="/bookmarks/{{ auth()->id() }}">BookMarks</a>
-                        </div>
-                        <div class="p-3">
-                            <a href="/user/settings">Settings</a>
-                        </div>
-                        <div class="p-3">
-                            <form action="/logout" method="post">
-                                @csrf
-                                <button type="submit">Log Out</button>
-                            </form>
+                    <div class="p-3">
+                        <a href="/bookmarks/{{ auth()->id() }}">BookMarks</a>
+                    </div>
+                    <div class="p-3">
+                        <a href="/user/settings">Settings</a>
+                    </div>
+                    <div class="p-3">
+                        <form action="/logout" method="post" id="logOutBtn">
+                            @csrf
+                            <button type="submit">Log Out</button>
+                        </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        {{-- End here --}}
     @else
         <div class="float-end">
             <div class="nav-items">
@@ -111,4 +105,35 @@
         <input type="hidden" name="lang" value="en" >
         <button type="submit" class="fas fa-search"></button>
     </form>
+    <style>
+        .offcanvas {
+            z-index: 1055;
+        }
+        .offcanvas a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            padding: 1rem;
+        }
+        .offcanvas a:hover {
+            color: #5138ee;
+        }
+
+        #bookmarkCount {
+            color: #424549;
+        }
+        #logOutBtn {
+            background: transparent;
+            border: none;
+        }
+        #logOutBtn button {
+            background: transparent;
+            font-weight: 500;
+            color: black;
+            margin: 0;
+        }
+        #logOutBtn button:hover {
+            color: #5138ee;
+        }
+    </style>
 </nav>

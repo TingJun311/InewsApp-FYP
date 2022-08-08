@@ -317,7 +317,7 @@ nav .logo.space {
 .sideNav li a:hover {
     color: #5138ee;
 }
-@media (max-width: 800px) {
+@media (max-width: 1400px) {
     .sideNav {
         width: 100%;
         position: sticky;
@@ -430,6 +430,37 @@ div.cardBox:hover ~ .cardTitle {
     color: #000;
 }
 
-/* div.cardBox {
-    background: #1f0098;
+
+
+
+/* Bookmark page */
+#bookmarkContainer .btnRow button {
+    border: none;
+    padding: 0.6rem;
+    transition: linear 0.2s;
+    border-radius: 5px;
+}
+#bookmarkContainer span {
+    color: #969696;
+}
+
+#bookmarkContainer .btnRow .delBtn button{
+    background: #e63946;
+    color: #fff;
+}
+#bookmarkContainer .btnRow .viewBtn button {
+    background: #5138ee;
+    color: #fff;
+}
+#bookmarkContainer .btnRow .viewBtn button:hover {
+    background: #1f0098;;
+}
+#bookmarkContainer .btnRow .delBtn button:hover {
+    background: #d90429;
+}
+
+/* @media (max-width: 1400px) {
+    div.weatherCol {
+        display: none;
+    }
 } */

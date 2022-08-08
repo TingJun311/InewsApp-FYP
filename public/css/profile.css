@@ -39,6 +39,50 @@
 #bannerBg {
     width: 100%;
     height: 200px;
-    background: #4361ee;
+    background: #5138ee;
     filter: brightness(95%);
+}
+
+#userNameBx, #lang {
+    width: 100%;
+    padding: 13px 20px;
+    box-sizing: border-box;
+    border: 1px solid #d6d6d6;
+    border-radius: 50px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    transition: linear 0.2s;
+}
+#userNameBx:focus, #lang:focus {
+    outline: none;
+    border: 1px solid #5138ee;
+}
+
+#updatedMsg {
+    color: #969696;
+}
+
+#setUser button {
+    background: #5138ee;
+    color: #fff;
+    border-radius: 40px;
+    border: none;
+    padding: 0.8rem;
+    
+    width: 100%;
+}
+
+#setUser button:hover {
+    background: #1f0098;
+}
+
+#settings a {
+    text-decoration: none;
+    color: black;
+}
+#settings .d-flex .px-5 {
+    border-left: 3px solid #5138ee;
+    border-radius: 3px;
 }

@@ -2,18 +2,8 @@
     @php
         use Illuminate\Support\Str;
     @endphp
-    <div wire:loading style="width: 100%">
-        <div class="vertical-centered-box">
-            <div class="content">
-                <div class="loader-circle"></div>
-                <div class="loader-line-mask">
-                    <div class="loader-line"></div>
-                </div>
-                <div class="text-center">
-                    <img src="{{ asset('images/favicon_io/favicon-32x32.png') }}" alt="">
-                </div>
-            </div>
-        </div>
+    <div wire:loading style="width: 100%; height: 100vh;">
+        <x-laodingScreen />
     </div>
     @if ($loadScreen)
         <p></p>
@@ -35,10 +25,10 @@
                                     {{-- {{ dd($article) }} --}}
                                     @csrf
                                     <div class="row">
-                                        <div class="col-4 p-3 align-items-center">
+                                        <div class="col-12 col-md-4 p-3 align-items-center">
                                             <img src="{{ $article['media'] }}" alt="" class="img-fluid rounded float-end shadow-sm bg-body">
                                         </div>
-                                        <div class="col-8 p-3 cardBox">
+                                        <div class="col-12 col-md-8 p-3 cardBox">
                                             <h5 class="cardTitle text-start">
                                                 <button type="submit" class="text-start">
                                                     {{ $article['title'] }}
@@ -68,7 +58,7 @@
                             </div>
                         @endunless
                     </div>
-                    <div class="col-12 col-xxl-2 align-items-center mt-3">
+                    <div class="col-2 align-items-center mt-3">
                         <livewire:weather />
                     </div>
                 </div>

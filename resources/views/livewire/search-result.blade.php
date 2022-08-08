@@ -2,15 +2,11 @@
     @php
         use Illuminate\Support\Str;
     @endphp
-    <div wire:loading style="width: 100%">
-        <div class="text-center" id="pageLoad">
-            <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
+    <div wire:loading style="width: 100%; height: 100vh;">
+        <x-laodingScreen />
     </div>
     @if ($loading)
-        <p>...</p>
+        <p></p>
     @else
         <div wire:loading.remove>
             <div class="container-fiuld mainBx mt-5">
