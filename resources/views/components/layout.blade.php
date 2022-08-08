@@ -28,6 +28,7 @@
 
         {{-- Css link --}}
         <link rel="stylesheet" href="{{ asset('css/main.css') }}"> {{-- For NavBar, Footer, SideBar and RightNavBar --}}
+        <link rel="stylesheet" href="{{ asset('css/loading.css') }}">
 
         {{-- Alpine JS  --}}
         <script src="//unpkg.com/alpinejs" defer></script>

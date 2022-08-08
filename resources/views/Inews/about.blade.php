@@ -17,20 +17,19 @@
                         Inews is an operational business division of the world Broadcasting Corporation responsible 
                         for the gathering and broadcasting of news and current affairs in around the world.
                     </p>
-                    <button>
+                    <button class="btnP">
                         <a href="/">Explore</a>
                     </button>
-                    <button>
-                        <a href="/signIn">Sign In</a>
-                    </button>
+
+                    <a class="btnB" href="/signIn">Sign In</a>
                 </div>
             </div>
         </div>
     </header>
     <div class="container p-5 shadow-lg mt-5 text-center">
         <div class="row">
-            <div class="d-flex flex-row justify-content-center">
-                <div class="d-flex flex-column p-3">
+            <div class="d-inline-flex flex-column flex-md-row justify-content-center">
+                <div class="d-flex flex-column p-3 mt-2">
                     <h3>
                         <strong>
                             Headlines
@@ -43,10 +42,10 @@
                         <input type="hidden" name="query" value="headlines">
                         <input type="hidden" name="page" value="1">
                         <input type="hidden" name="lang" value="en">
-                        <button type="submit" >Read top Headlines</button>
+                        <button class="btnP" type="submit" >Read top Headlines</button>
                     </form>
                 </div>
-                <div class="d-flex flex-column p-3">
+                <div class="d-flex flex-column p-3 mt-2">
                     <h3>
                         <strong>    
                             Climate
@@ -59,10 +58,10 @@
                         <input type="hidden" name="query" value="climate">
                         <input type="hidden" name="page" value="1">
                         <input type="hidden" name="lang" value="en">
-                        <button type="submit" >Read climate news</button>
+                        <button class="btnP" type="submit" >Read climate news</button>
                     </form>
                 </div>
-                <div class="d-flex flex-column p-3">
+                <div class="d-flex flex-column p-3 mt-2">
                     <h3>
                         <strong>
                             Business
@@ -75,7 +74,7 @@
                         <input type="hidden" name="query" value="business">
                         <input type="hidden" name="page" value="1">
                         <input type="hidden" name="lang" value="en">
-                        <button type="submit" >Read news</button>
+                        <button class="btnP" type="submit" >Read news</button>
                     </form>
                 </div>
             </div>
@@ -93,9 +92,8 @@
                 <p>
                     Get to know more about our company and dedicated Inews team.
                 </p>
-                <button>
-                    <a href="/blogs">View Blogs</a>
-                </button>
+
+                <a class="btnB" href="/blogs">View Blogs</a>
             </div>
             <div class="col-12 col-md-6 ">
                 <img src="{{ asset('images/registerLogo.png') }}" class="img-fluid" alt="">
@@ -111,67 +109,72 @@
             </div>
         </div>
         <div class="row">
-            <div class="d-flex flex-row justify-content-center">
-                <div class="p-5 shadow m-3">
-                    <h3>
-                        <strong>
-                            War In Ukraine
-                        </strong>
-                    </h3>
-                    <p>
-                        Relations between the two countries became hostile after the 2014 Ukrainian revolution, which was followed by Russia's annexation of Crimea from Ukraine.
-                    </p>
-                    <form action="/category" method="get">
-                        <input type="hidden" name="query" value="war in ukraine">
-                        <input type="hidden" name="page" value="1">
-                        <input type="hidden" name="lang" value="en">
-                        <button type="submit" >Read articles</button>
-                    </form>
-                </div>
-                <div class="p-5 shadow m-3">
-                    <h3>
-                        <strong>
-                            Coronavirus
-                        </strong>
-                    </h3>
-                    <p>
-                        Coronaviruses are a group of viruses belonging to the family of Coronaviridae, which infect both animals and humans.
-                    </p>
-                    <form action="/category" method="get" class="text-center">
-                        <input type="hidden" name="query" value="coronavirsus">
-                        <input type="hidden" name="page" value="1">
-                        <input type="hidden" name="lang" value="en">
-                        <button type="submit" >Read news</button>
-                    </form>
-                </div>
-                <div class="p-5 shadow m-3">
-                    <h3>
-                        <strong>
-                            Technology
-                        </strong>
-                    </h3>
-                    <p>
-                        Technology is the application of scientific knowledge to the practical aims of human life or, as it is sometimes phrased, to the change and manipulation of the human environment.
-                    </p>
-                    <form action="/category" method="get" class="text-end">
-                        <input type="hidden" name="query" value="technology">
-                        <input type="hidden" name="page" value="1">
-                        <input type="hidden" name="lang" value="en">
-                        <button type="submit" >Latest tech</button>
-                    </form>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-5 col-lg-4 p-5 shadow m-5">
+                        <h3>
+                            <strong>
+                                War In Ukraine
+                            </strong>
+                        </h3>
+                        <p>
+                            Relations between the two countries became hostile after the 2014 Ukrainian revolution, which was followed by Russia's annexation of Crimea from Ukraine.
+                        </p>
+                        <form action="/category" method="get">
+                            <input type="hidden" name="query" value="war in ukraine">
+                            <input type="hidden" name="page" value="1">
+                            <input type="hidden" name="lang" value="en">
+                            <button class="btnP" type="submit" >Read articles</button>
+                        </form>
+                    </div>
+                    <div class="col-12 col-md-5 col-lg-4 p-5 shadow m-5">
+                        <h3>
+                            <strong>
+                                Coronavirus
+                            </strong>
+                        </h3>
+                        <p>
+                            Coronaviruses are a group of viruses belonging to the family of Coronaviridae, which infect both animals and humans.
+                        </p>
+                        <form action="/category" method="get" class="text-center">
+                            <input type="hidden" name="query" value="coronavirus">
+                            <input type="hidden" name="page" value="1">
+                            <input type="hidden" name="lang" value="en">
+                            <button class="btnP" type="submit" >Read news</button>
+                        </form>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4 p-5 shadow mt-5">
+                        <h3>
+                            <strong>
+                                Technology
+                            </strong>
+                        </h3>
+                        <p>
+                            Technology is the application of scientific knowledge to the practical aims of human life or, as it is sometimes phrased, to the change and manipulation of the human environment.
+                        </p>
+                        <form action="/category" method="get" class="text-end">
+                            <input type="hidden" name="query" value="technology">
+                            <input type="hidden" name="page" value="1">
+                            <input type="hidden" name="lang" value="en">
+                            <button class="btnP" type="submit" >Latest tech</button>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>  
 
     <div class="container my-5 p-3">
-        <div class="row">
-            <div class="col-6 p-5">
-                <div class="p-5 rounded bg-light ">
-                    <img src="{{ asset('images/favicon_io/android-chrome-512x512.png') }}" class="img-fluid" alt="">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 align-self-center text-center">
+                <div class="p-5 rounded">
+                    <div class="rounded p-5">
+                        <img src="{{ asset('images/favicon_io/android-chrome-192x192.png') }}" class="img-fluid" alt="">
+                    </div>
                 </div>
             </div>
-            <div class="col-6 align-self-center">
+            <div class="col-12 col-md-6 align-self-center">
                 <div class="bg-dark rounded p-5 text-light">
                     <h3 class="mb-4">
                         <strong>
@@ -199,8 +202,9 @@
                 </div>
             </div>
         </div>
-
     </div>
+
+    
     <div class="container-fluid p-5" id="colorBg">
         <div class="row">
             <div class="col-12 p-5 text-left">
@@ -212,7 +216,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-4 px-5">
+            <div class="col-12 col-md-6 col-lg-4 px-5">
                 <strong>
                     Entertainment
                 </strong>
@@ -223,10 +227,10 @@
                     <input type="hidden" name="query" value="entertainment">
                     <input type="hidden" name="page" value="1">
                     <input type="hidden" name="lang" value="en">
-                    <button type="submit" class="p-2" >Read more</button>
+                    <button class="btnW" type="submit" class="p-2" >Read more</button>
                 </form>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-6 col-lg-4 px-5">
                 <strong>
                     Health
                 </strong>
@@ -237,10 +241,10 @@
                     <input type="hidden" name="query" value="health">
                     <input type="hidden" name="page" value="1">
                     <input type="hidden" name="lang" value="en">
-                    <button type="submit" class="p-2" >Read more</button>
+                    <button class="btnW" type="submit" class="p-2" >Read more</button>
                 </form>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-lg-4 px-5">
                 <strong>
                     Sciences
                 </strong>
@@ -251,7 +255,7 @@
                     <input type="hidden" name="query" value="sciences">
                     <input type="hidden" name="page" value="1">
                     <input type="hidden" name="lang" value="en">
-                    <button type="submit" class="p-2" >Explore sciences</button>
+                    <button class="btnW" type="submit" class="p-2" >Explore sciences</button>
                 </form>
             </div>
         </div>
@@ -259,15 +263,15 @@
 
     <div class="container m-5 p-5">
         <div class="row">
-            <div class="col-8">
+            <div class="col-12 col-sm-8">
                 <h3>
                     <strong>
                         For latest news and bookmark?
                     </strong>
                 </h3>
             </div>
-            <div class="col-4 text-end">
-                <button>
+            <div class="col-12 col-sm-4 text-center">
+                <button class="btnP">
                     <a href="/signIn">Sign Up</a>
                 </button>
             </div>
@@ -291,6 +295,47 @@
             background: #5138ee;
             color: #fff;
         }
+
+        .btnP {
+            border: none;
+            padding: 1rem;
+            color: #fff;
+            background: #5138ee;
+            border-radius: 50px;
+            transition: linear 0.2s;
+        }
+        .btnP a{
+            text-decoration: none;
+            color: #fff;
+        }
+        .btnP:hover {
+            background: #1f0098;
+        }
+
+        .btnB {
+            border: 1px solid #5138ee;
+            border-radius: 50px;
+            padding: 1rem;
+            transition: linear 0.2s;
+            color: #5138ee;
+            text-decoration: none;
+        }
+        .btnB:hover  {
+            background: #5138ee;
+            color: #fff;
+        }
+
+        .btnW {
+            border: 1px solid #fff;
+            background: transparent;
+            color: #fff;
+            padding: 1rem;
+            border-radius: 50px;
+            transition: linear 0.2s;
+        }
+        .btnW:hover {
+            background: #fff;
+            color: #5138ee;
+        }
     </style>
-    
 </x-layout>

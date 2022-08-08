@@ -3,14 +3,20 @@
         use Illuminate\Support\Str;
     @endphp
     <div wire:loading style="width: 100%">
-        <div class="text-center" id="pageLoad">
-            <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-                <span class="visually-hidden">Loading...</span>
+        <div class="vertical-centered-box">
+            <div class="content">
+                <div class="loader-circle"></div>
+                <div class="loader-line-mask">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="text-center">
+                    <img src="{{ asset('images/favicon_io/favicon-32x32.png') }}" alt="">
+                </div>
             </div>
         </div>
     </div>
     @if ($loadScreen)
-        <p>...</p>
+        <p></p>
     @else
 
         <div wire:loading.remove>
