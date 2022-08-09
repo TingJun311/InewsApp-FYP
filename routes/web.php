@@ -61,3 +61,10 @@ Route::get("/user/profile/{userId}", [UsersController::class, 'showProfile'])->m
 // Oauth Google
 Route::get('/auth/google', [OauthController::class, 'loginWithGoogle'])->middleware('guest');
 Route::get('/auth/google/callback', [OauthController::class, 'callBackGoogle'])->middleware('guest');
+
+
+// User reset password
+Route::get('/user/reset/password', [UsersController::class, 'showResetPw'])->middleware('guest');
+Route::post('/forgot-password', [UsersController::class, 'store'])->middleware('guest');
+Route::get('reset-password/{token}', [UsersController::class, 'createNewPassword'])->name('password.reset')->middleware('guest');
+Route::post('reset-password', [UsersController::class, 'resetPassword'])->name('password.update')->middleware('guest');

@@ -86,7 +86,7 @@
                             @endif
                             ><label for="remember">Remember me</label>
                     </div>
-                    <a href="#" class="link forgot-link">Forgot Password ?</a>
+                    <a href="/user/reset/password" class="link forgot-link">Forgot Password ?</a>
                 </div>
                 
                 <button class="rounded-button login-cta"  type="submit">
