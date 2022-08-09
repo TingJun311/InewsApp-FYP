@@ -36,7 +36,11 @@
                         placeholder="email@website.com" 
                         id="email"
                         name="email"
-                        value="{{ old('email') }}"
+                        @if (Cookie::has('userEmail'))
+                            value="{{ Cookie::get('userEmail') }}"
+                        @else
+                            value="{{ old('email') }}"
+                        @endif
                         @error('email')
                             style="border: 2px solid red"
                         @enderror
@@ -53,7 +57,12 @@
                         placeholder="Minimum 8 characters" 
                         id="pwd"
                         name="password"
-                        value="{{ old('password') }}"
+                        @if (Cookie::has('userPw'))
+                            value="{{ Cookie::get('userPw') }}"
+                        @else
+                            value="{{ old('password') }}"
+                        @endif
+
                         @error('password')
                             style="border: 2px solid red"
                         @enderror
@@ -67,7 +76,15 @@
                 @enderror
                 <div class="login-form-group single-row">
                     <div class="custom-check">
-                        <input autocomplete="off" type="checkbox" id="remember"><label for="remember">Remember me</label>
+                        <input 
+                            autocomplete="off" 
+                            name="rememberMe" 
+                            type="checkbox" 
+                            id="remember"
+                            @if (Cookie::has('userEmail'))
+                                checked
+                            @endif
+                            ><label for="remember">Remember me</label>
                     </div>
                     <a href="#" class="link forgot-link">Forgot Password ?</a>
                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Cookie;
 
 class UsersController extends Controller
 {
@@ -30,6 +31,10 @@ class UsersController extends Controller
             'password' => 'required'
         ]);
 
+        if ($request->has('rememberMe')) {
+            Cookie::queue('userEmail', $request->email, 1440);
+            Cookie::queue('userPw', $request->password, 1440);
+        }
         if (auth()->attempt($formValue)) {
             $request->session()->regenerate();
 
