@@ -19,13 +19,13 @@ class BlogCommentResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                // Forms\Components\RichEditor::make('comment')->required(),
-            ]);
-    }
+    // public static function form(Form $form): Form
+    // {
+    //     return $form
+    //         ->schema([
+    //             // Forms\Components\RichEditor::make('comment')->required(),
+    //         ]);
+    // }
 
     public static function table(Table $table): Table
     {
@@ -60,7 +60,7 @@ class BlogCommentResource extends Resource
     {
         return [
             'index' => Pages\ListBlogComments::route('/'),
-            'create' => Pages\CreateBlogComment::route('/create'),
+            // 'create' => Pages\CreateBlogComment::route('/create'),
             'edit' => Pages\EditBlogComment::route('/{record}/edit'),
         ];
     }    

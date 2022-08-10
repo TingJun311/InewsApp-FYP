@@ -7,8 +7,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-4"></div>
-            <div class="col-12 col-lg-4 shadow-lg p-5">
+            <div class="col-12 col-xl-4"></div>
+            <div class="col-12 col-xl-4 shadow-lg p-5">
                 <form action="{{ route('password.update') }}" method="POST">
                     @csrf
                     <input type="hidden" name="token" value="{{ $request->route('token') }}">
@@ -76,7 +76,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-12 col-lg-4"></div>
+            <div class="col-12 col-xl-4"></div>
         </div>
     </div>
 </x-layout>

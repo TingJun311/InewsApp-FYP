@@ -15,14 +15,13 @@
                     <div class="col-12 col-xxl-2">
                         <livewire:side-nav :userInput="$data['user_input']"/>
                     </div>
-                    <div class="col-12 col-xxl-6 mt-2">
-                        @unless ($data['status'] !== 'ok')
+                    @unless ($data['status'] !== 'ok')
+                        <div class="col-12 col-xxl-6 mt-2">
                             @php
                                 $articles = $data['articles'];
                             @endphp
                             @foreach ($data['articles'] as $article)
                                 <form method="GET" action="/news/articles" class="container-fiuld m-2">
-                                    {{-- {{ dd($article) }} --}}
                                     @csrf
                                     <div class="row">
                                         <div class="col-12 col-md-4 p-3 align-items-center">
@@ -47,22 +46,22 @@
                                 </form>
                             @endforeach
 
-                            <livewire:pagination 
-                                :query="$data['user_input']['q']" 
-                                :lang="$data['user_input']['lang']" 
-                                :page="$data['user_input']['page']" 
-                                :totalPage="$data['total_pages']" />
+                        </div>
                         @else
-                            <div class="d-flex justify-content-center">
-                                <h3>Try again later</h3>
-                            </div>
+                        <div class="d-flex justify-content-center">
+                            <h3>Try again later</h3>
+                        </div>
                         @endunless
-                    </div>
-                    <div class="col-2 align-items-center mt-3">
-                        <livewire:weather />
+                        <div class="col-2 align-items-center mt-3">
+                            <livewire:weather />
+                        </div>
                     </div>
                 </div>
-            </div>
+                <livewire:pagination 
+                    :query="$data['user_input']['q']" 
+                    :lang="$data['user_input']['lang']" 
+                    :page="$data['user_input']['page']" 
+                    :totalPage="$data['total_pages']" />
         </div>
     @endif
 </div>

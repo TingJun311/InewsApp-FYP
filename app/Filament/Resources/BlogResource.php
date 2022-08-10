@@ -24,7 +24,11 @@ class BlogResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')->required(),
-                Forms\Components\TextInput::make('about')->required(),
+                Forms\Components\Textarea::make('about')
+                                            ->label('Descriptions')
+                                            ->rows(5)
+                                            ->cols(20)
+                                            ->required(),
                 Forms\Components\FileUpload::make('images')
                                                 ->directory('blogImages')
                                                 ->visibility('public'),
@@ -35,11 +39,19 @@ class BlogResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('about'),
+                Tables\Columns\TextColumn::make('title')
+                                            ->sortable()
+                                            ->searchable(),
+                Tables\Columns\TextColumn::make('about')
+                                            ->sortable()
+                                            ->searchable(),
                 Tables\Columns\TextColumn::make('images'),
-                Tables\Columns\TextColumn::make('created_at'),
-                Tables\Columns\TextColumn::make('updated_at'),
+                Tables\Columns\TextColumn::make('created_at')
+                                            ->sortable()
+                                            ->searchable(),
+                Tables\Columns\TextColumn::make('updated_at')
+                                            ->sortable()
+                                            ->searchable(),
             ])
             ->filters([
                 //

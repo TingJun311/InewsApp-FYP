@@ -15,7 +15,7 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessFilament(): bool
     {
-        return str_ends_with($this->email, env('ADMIN_DNS'));
+        return str_ends_with($this->email, env('ADMIN_DNS')) && $this->is_admin == true;
         // && $this->hasVerifiedEmail();
     }
 
@@ -34,6 +34,7 @@ class User extends Authenticatable implements FilamentUser
         'provider',
         'profile_path',
         'lang',
+        'is_admin',
     ];
 
     /**
@@ -53,6 +54,7 @@ class User extends Authenticatable implements FilamentUser
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_admin' => 'boolean'
     ];
 
     // protected $touches = ['user'];

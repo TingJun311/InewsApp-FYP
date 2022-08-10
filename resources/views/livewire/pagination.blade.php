@@ -1,5 +1,5 @@
 
-<nav class="d-flex flex-row justify-content-evenly" method="GET" action="/search">
+<nav class="d-flex flex-row justify-content-evenly" method="GET" action="/search" id="paginationNav">
     <div class='p-2'>
         <form action="/search" method="GET" style="background: #fff; border: none;">
             <input type="hidden" name="query" value="{{ $query }}">
@@ -36,9 +36,5 @@
             @endif
         </form>
     </div>
-    <style>
-        button.paginateBtn {
-        }
-    </style>
 </nav>
 

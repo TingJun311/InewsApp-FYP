@@ -11,7 +11,7 @@
         </a>
     </div>
     <div class="nav-items">
-        <li><a href="#">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="/blogs">Blogs</a></li>
         <li><a href="/about">About</a></li>
     </div>
@@ -26,18 +26,15 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="userContent">
-                <a href="#">Settings</a>
                 <a href="/bookmarks/{{ auth()->id() }}">BookMarks</a>
-                <a href="#">
-                    <button 
-                        type="button" 
-                        data-bs-toggle="offcanvas" 
-                        data-bs-target="#offcanvasRight" 
-                        aria-controls="offcanvasRight"
-                    >
-                        Profile
-                    </button>
-                </a>
+                <button 
+                    type="button" 
+                    data-bs-toggle="offcanvas" 
+                    data-bs-target="#offcanvasRight" 
+                    aria-controls="offcanvasRight"
+                >
+                    Profile
+                </button>
             </div>
         </div>     
 
@@ -70,9 +67,6 @@
                     </div>
                     <div class="p-3">
                         <a href="/bookmarks/{{ auth()->id() }}">BookMarks</a>
-                    </div>
-                    <div class="p-3">
-                        <a href="/user/settings">Settings</a>
                     </div>
                     <div class="p-3">
                         <form action="/logout" method="post" id="logOutBtn">

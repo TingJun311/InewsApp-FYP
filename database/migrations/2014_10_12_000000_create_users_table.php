@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
             $table->string('lang')->nullable();
+            $table->string('is_admin');
         });
     }
 

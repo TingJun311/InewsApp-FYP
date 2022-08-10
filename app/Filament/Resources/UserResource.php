@@ -25,6 +25,31 @@ class UserResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')->required(),
                 Forms\Components\TextInput::make('email')->email()->required(),
+                Forms\Components\TextInput::make('password')->password()
+                                                        ->required()
+                                                        ->hiddenOn('edit')
+                                                        ->disabled(),
+                Forms\Components\FileUpload::make('profile_path')
+                                                ->directory('profilePhoto')
+                                                ->visibility('public'),
+                Forms\Components\Select::make('lang')
+                                        ->required()
+                                        ->label('languages')
+                                        ->options([
+                                            'en' => 'English',
+                                            'es' => 'Spanish',
+                                            'de' => 'German',
+                                            'fr' => 'French', 
+                                            'it' => 'Italian',
+                                        ])
+                                        ->searchable(),
+                Forms\Components\Toggle::make('is_admin')
+                                        ->required()
+                                        ->label('is_admin')
+                                        ->inline(false)
+                                        ->onIcon('heroicon-s-lightning-bolt')
+                                        ->offIcon('heroicon-s-user')
+                                        ->helperText('Note that this actions allows you to grand Admin permissions'),
             ]);
     }
 
@@ -32,11 +57,14 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('email'),
-                Tables\Columns\TextColumn::make('created_at'),
-                Tables\Columns\TextColumn::make('updated_at'),
-                Tables\Columns\TextColumn::make('email_verified_at'),
+                Tables\Columns\TextColumn::make('name')
+                                            ->sortable()
+                                            ->searchable(),
+                Tables\Columns\TextColumn::make('email')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('created_at')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('updated_at')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('email_verified_at')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('is_admin')->searchable()
             ])
             ->filters([
                 //
@@ -60,7 +88,7 @@ class UserResource extends Resource
     {
         return [
             'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
+            // 'create' => Pages\CreateUser::route('/create'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }    

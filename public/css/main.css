@@ -286,6 +286,17 @@ nav .logo.space {
 .userContent a:hover {
     background-color: #ddd;
 }
+.userContent button {
+    border: none;
+    background: transparent;
+    width: 100%;
+    padding: 12px 16px;
+    color: black;
+    text-align: left;
+}
+.userContent button:hover {
+    background-color: #ddd;
+}
 
 .fa-caret-down {
     color: black;
@@ -459,7 +470,7 @@ div.cardBox:hover ~ .cardTitle {
     background: #d90429;
 }
 
-.resetPwForm form input {
+.resetPwForm form input, #resetPwForm form input {
     padding: 13px 20px;
     width: 100%;
     box-sizing: border-box;
@@ -471,11 +482,11 @@ div.cardBox:hover ~ .cardTitle {
     color: #333;
     transition: linear 0.2s;
 }
-.resetPwForm form input:focus {
+.resetPwForm form input:focus, #resetPwForm form input:focus  {
     outline: none;
     border: 1px solid #5138ee;
 }
-.resetPwForm form button {
+.resetPwForm form button, #resetPwForm form button {
     border: none;
     display: flex;
     width: 100%;
@@ -491,11 +502,16 @@ div.cardBox:hover ~ .cardTitle {
     background: #5138ee;
     color: #fff;
 }
-#resetPwForm form button:hover {
+.resetPwForm form button:hover, #resetPwForm form button:hover {
     box-shadow: 0px 0px 4px 0px #d6d6d6;
     background: #1f0098;
 }
 
 span.errorMessage {
     color: #d90429;
+}
+
+
+#paginationNav {
+    background: transparent;
 }

@@ -13,7 +13,7 @@ class MainContent extends Component
     public $data, $loadScreen = true, $user;
 
     public $query = [
-        'q' => 'coronavirus',
+        'q' => 'top trending',
         'lang' => 'en',
         'page' => 1,
     ];

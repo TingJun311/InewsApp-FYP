@@ -26,7 +26,8 @@ class OauthController extends Controller
                     'email' => $user->email,
                     'provider' => 'google',
                     'provider_id' => $user->id,
-                    'lang' => 'en'
+                    'lang' => 'en',
+                    'is_admin' => false,
                 ]);
 
                 Auth::login($new);
