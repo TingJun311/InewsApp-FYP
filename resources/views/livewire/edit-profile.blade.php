@@ -43,14 +43,14 @@
                     {{-- User tabs --}}
                     <div id="setUser" >
                         <div class="d-flex flex-column flex-lg-row justify-content-between mb-5">
-                            <div class="mb-3">
+                            <div class="mb-3 p-2">
                                 <label for="userNameBx">Username: </label>
                                 <input type="text" wire:model.defer="userName" id="userNameBx">
                                 @error('userName')
                                     <p>{{ $message }}</p>
                                 @enderror
                             </div>
-                            <div>
+                            <div class="p-2">
                                 <label for="lang">Language: </label>
                                 <select name="lang" id="lang" wire:model.defer="lang">
                                     <option value="en" {{ $displayLang['en'] }}>English</option>
@@ -62,15 +62,18 @@
                             </div>
                         </div>
                         <div wire:loading.remove class="text-end" id="updatedMsg">
-                            <div class="d-flex flex-row justify-content-end">
-                                <div class="p-2 align-self-center">
-                                    last updated
-                                    {{ $userData->updated_at->diffForHumans() }}
-                                </div>
-                                <div class="p-2">
-                                    <button wire:click="editUserProfile">
-                                        Save
-                                    </button>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 col-md-5"></div>
+                                    <div class="col-12 col-md-5 align-self-center">
+                                        last updated
+                                        {{ $userData->updated_at->diffForHumans() }}
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <button wire:click="editUserProfile" class="mt-2">
+                                            Save
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -84,8 +87,68 @@
                     </div>
                 </div>
             </div>
+        </form>
+        <div class="row">
+            @if ( Auth::user()->provider == null)
+            {{-- If the user does not login with Oauth then we allow them reset the password --}}
+                <div class="col-12 col-xl-2 my-5">
+                    <div class="d-flex flex-column ">
+                        <div class="px-5 mt-5">
+                            <strong>
+                                <a href="/user/profile/{{ auth()->id() }}">
+                                    Password
+                                </a>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-10 p-5 mt-5 shadow">
+                    <form action="/user/updated/password" method="POST" id="setPassword">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-lg-4">
+                                    @csrf
+                                    <div class="conatiner">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label for="currentPassword">Current Password: </label>
+                                                <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+                                                <input 
+                                                    type="password" 
+                                                    id="userUpdatedPassword" 
+                                                    name="password" 
+                                                    value="{{ old('password') }}"
+                                                    placeholder="Type in your current password to reset"
+                                                    class="mb-2"
+                                                    @error('password')
+                                                        style="border-color: red;"
+                                                    @enderror
+                                                >
+                                                @error('password')
+                                                    <span class="errorMessage">{{ $message }}</span> <br>
+                                                @enderror
+                                                <a href="/user/reset/password">Forgot current password?</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-5"></div>
+                                <div class="col-12 col-md-5"></div>
+                                <div class="col-md-2 col-12 text-end">
+                                    <button type="submit" class="mt-2" >            
+                                        Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>    
+            @endif
         </div>
-    </form>
+    </div>
     <br>
     <br>
     <br>

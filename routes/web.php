@@ -64,7 +64,10 @@ Route::get('/auth/google/callback', [OauthController::class, 'callBackGoogle'])-
 
 
 // User reset password
-Route::get('/user/reset/password', [UsersController::class, 'showResetPw'])->middleware('guest');
-Route::post('/forgot-password', [UsersController::class, 'store'])->middleware('guest');
-Route::get('reset-password/{token}', [UsersController::class, 'createNewPassword'])->name('password.reset')->middleware('guest');
-Route::post('reset-password', [UsersController::class, 'resetPassword'])->name('password.update')->middleware('guest');
+Route::get('/user/reset/password', [UsersController::class, 'showResetPw']);
+Route::post('/forgot-password', [UsersController::class, 'store']);
+Route::get('reset-password/{token}', [UsersController::class, 'createNewPassword'])->name('password.reset');
+Route::post('reset-password', [UsersController::class, 'resetPassword'])->name('password.update');
+
+// User updated Password
+Route::post('/user/updated/password', [UsersController::class, 'updatedPassword'])->middleware('auth');

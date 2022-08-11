@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
@@ -129,4 +130,20 @@ class UsersController extends Controller
                     : back()->withInput($request->only('email'))
                             ->withErrors(['email' => __($status)]);
     }
+
+    public function updatedPassword (Request $request) {
+        $formValue = $request->validate([
+            'password' => ['required'],
+            'email' => ['required'],
+        ]);
+
+        if (auth()->attempt($formValue)) {
+            // return back()->with('')
+            return redirect('/user/reset/password')->with('resetPassword', Auth::user()->email);
+        }
+        return back()->withErrors([
+            'password' => 'Incorrect password',
+        ]);
+    }
+
 }

@@ -13,7 +13,8 @@ class EditProfile extends Component
         $profileImages, 
         $userName, 
         $lang, 
-        $selectedLang;
+        $selectedLang,
+        $currentPassword;
 
     public $displayLang = [
         'en' => null,

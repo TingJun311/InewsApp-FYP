@@ -43,7 +43,7 @@
     filter: brightness(95%);
 }
 
-#userNameBx, #lang {
+#userNameBx, #lang, #userUpdatedPassword, #updatedPw {
     width: 100%;
     padding: 13px 20px;
     box-sizing: border-box;
@@ -55,7 +55,7 @@
     color: #333;
     transition: linear 0.2s;
 }
-#userNameBx:focus, #lang:focus {
+#userNameBx:focus, #lang:focus, #userUpdatedPassword:focus, #updatedPw:focus {
     outline: none;
     border: 1px solid #5138ee;
 }
@@ -64,7 +64,7 @@
     color: #969696;
 }
 
-#setUser button {
+#setUser button, #setPassword button {
     background: #5138ee;
     color: #fff;
     border-radius: 40px;
@@ -74,13 +74,17 @@
     width: 100%;
 }
 
-#setUser button:hover {
+#setUser button:hover, #setPassword button:hover {
     background: #1f0098;
 }
 
 #settings a {
     text-decoration: none;
-    color: black;
+    color: #5138ee;
+}
+#settings a:hover {
+    text-decoration: underline;
+    text-decoration-line: underline;
 }
 #settings .d-flex .px-5 {
     border-left: 3px solid #5138ee;
