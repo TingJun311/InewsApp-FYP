@@ -71,6 +71,7 @@ class UsersController extends Controller
             'email' => ['required', 'email'], 
         ]);
 
+
         $resetEmail = DB::table('users')->where('email', '=', $request->email)->get();
         if(count($resetEmail) == 1) {
             // If the user login with Oauth previously with alert them then redirect back

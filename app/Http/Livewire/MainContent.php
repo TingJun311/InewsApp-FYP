@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
+use App\Services\FetchNewsServices;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\ConnectionException;
@@ -35,35 +36,44 @@ class MainContent extends Component
         return view('livewire.main-content');
     }
 
-    public function fetchNews() {
+    public function fetchNews(FetchNewsServices $fetchNews) {
         $this->emit('refreshComponent');
 
         if (Auth::check()) {
             $this->user = User::find(auth()->id());
             $this->query['lang'] = $this->user->lang;
         }
-        $response = Http::retry(3, 5000, function ($exception, $request) {
-                        return $exception instanceof ConnectionException; 
-                    })
-            ->withHeaders([
-                'X-RapidAPI-Host' => env('API_HOST'),
-                'X-RapidAPI-Key' => env('API_KEY'),
-            ])
-            ->get('https://free-news.p.rapidapi.com/v1/search', $this->query);
 
-        if ($response->failed()) {
-            throw new \RuntimeException('Failed to convert', $response->status());
-        };
+        $this->data = $fetchNews->fetch(
+            $this->query['q'],
+            $this->query['lang'],
+            $this->query['page'],
+        );
+        $this->loadScreen = false;
+        $this->paginationController();
+        
+        // $response = Http::retry(3, 5000, function ($exception, $request) {
+        //                 return $exception instanceof ConnectionException; 
+        //             })
+        //     ->withHeaders([
+        //         'X-RapidAPI-Host' => config('app.rapid_api_host.free_news'),
+        //         'X-RapidAPI-Key' => config('app.rapid_api_key'),
+        //     ])
+        //     ->get('https://free-news.p.rapidapi.com/v1/search', $this->query);
 
-        if ($response->clientError() || $response->serverError()) {
-            return redirect('/');
-        };
+        // if ($response->failed()) {
+        //     throw new \RuntimeException('Failed to convert', $response->status());
+        // };
 
-        if($response->successful()) {
-            $this->data = $response->json();
-            $this->loadScreen = false;
-            $this->paginationController();
-        };
+        // if ($response->clientError() || $response->serverError()) {
+        //     return redirect('/');
+        // };
+
+        // if($response->successful()) {
+        //     $this->data = $response->json();
+        //     $this->loadScreen = false;
+        //     $this->paginationController();
+        // };
     }
 
     public function setLoading () {
@@ -85,7 +95,9 @@ class MainContent extends Component
     }
 
     private function paginationController () {
-        $this->pagination['next'] = ($this->data['page'] != $this->data['total_pages'])? null : 'disabled';
-        $this->pagination['previous'] = ($this->data['page'] == 1)? 'disabled' : null;
+        if ($this->data['status'] == "ok") {
+            $this->pagination['next'] = ($this->data['page'] != $this->data['total_pages'])? null : 'disabled';
+            $this->pagination['previous'] = ($this->data['page'] == 1)? 'disabled' : null;
+        }
     }
 }

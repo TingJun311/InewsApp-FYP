@@ -58,6 +58,7 @@ class EditProfile extends Component
         }   
 
         $this->userData->lang = $this->lang;
+        $this->userData->name = $this->userName;
         $this->userData->updated_at = now();
         $this->userData->save();
     }

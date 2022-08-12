@@ -38,8 +38,8 @@ class NewsArticle extends Component
                 return $exception instanceof ConnectionException; 
             })
             ->withHeaders([
-                'X-RapidAPI-Host' => env('EXTRACT_HOST'),
-                'X-RapidAPI-Key' => env('API_KEY'),
+                'X-RapidAPI-Host' => config('app.rapid_api_host.extract_news'),
+                'X-RapidAPI-Key' => config('app.rapid_api_key'),
             ])
             ->get('https://extract-news.p.rapidapi.com/v0/article', $this->query);
 

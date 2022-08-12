@@ -3,6 +3,14 @@
 use Illuminate\Support\Facades\Facade;
 
 return [
+    'rapid_api_key' => env('API_KEY'),
+    'rapid_api_host' => [
+        'free_news' => env('API_HOST'),
+        'extract_news' => env('EXTRACT_HOST'),
+        'weather' => env('WEATHER_HOST'),
+    ],
+
+    'admin_access_key' => env('ADMIN_DNS'),
 
     /*
     |--------------------------------------------------------------------------
@@ -196,7 +204,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
     ],
 
     /*

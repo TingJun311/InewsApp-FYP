@@ -35,7 +35,6 @@ class OauthController extends Controller
                 return redirect('/');
             }
         } catch (\Exception $e) {
-            // dd($e->getMessage());
             return redirect('/')->withErrors('OauthFailed', 'Login error try again later');
         }
     }

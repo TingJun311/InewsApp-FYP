@@ -10,7 +10,7 @@
     @else
 
         <div wire:loading.remove>
-            <div class="container-fiuld mainBx">
+            <div class="container-fiuld mainBx" style="min-height: 100vh;">
                 <div class="row justify-content-center">
                     <div class="col-12 col-xxl-2">
                         <livewire:side-nav :userInput="$data['user_input']"/>
@@ -45,23 +45,29 @@
                                     </div>
                                 </form>
                             @endforeach
-
                         </div>
                         @else
-                        <div class="d-flex justify-content-center">
-                            <h3>Try again later</h3>
-                        </div>
+                            <div class="col-12 col-xxl-6 mt-2 text-center">
+                                <div class="d-flex flex-row justify-content-center" style="height: 90vh">
+                                    <div class="align-self-center">
+                                        <h3>Not found</h3>
+                                        <p>Try again a later</p>
+                                    </div>
+                                </div>
+                            </div>
                         @endunless
                         <div class="col-2 align-items-center mt-3">
                             <livewire:weather />
                         </div>
                     </div>
                 </div>
-                <livewire:pagination 
-                    :query="$data['user_input']['q']" 
-                    :lang="$data['user_input']['lang']" 
-                    :page="$data['user_input']['page']" 
-                    :totalPage="$data['total_pages']" />
+                @unless ($data['status'] !== 'ok')
+                    <livewire:pagination 
+                        :query="$data['user_input']['q']" 
+                        :lang="$data['user_input']['lang']" 
+                        :page="$data['user_input']['page']" 
+                        :totalPage="$data['total_pages']" />
+                @endunless
         </div>
     @endif
 </div>

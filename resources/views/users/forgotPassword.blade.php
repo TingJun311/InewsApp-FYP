@@ -23,26 +23,21 @@
                 <form method="POST" action="/forgot-password" class="mt-5">
                     @csrf
                     <label for="email">Email address: </label><br>
-                    @if (session('resetPassword'))
+
                         <input 
                             type="email" 
                             name="email" 
-                            value="{{ session('resetPassword') }}"
-                            @error('email')
-                                style="border-color: red;"
-                            @enderror
-                            disabled
-                        >
-                    @else
-                        <input 
-                            type="email" 
-                            name="email" 
-                            value="{{ old("email") }}"
+                            @unless (session('resetPassword') == null)
+                                value="{{ session('resetPassword') }}"
+                                readonly
+                            @else
+                                value="{{ old('email') }}"
+                                required
+                            @endunless
                             @error('email')
                                 style="border-color: red;"
                             @enderror
                         >
-                    @endif
                     @error('email')
                         <span class="errorMessage">{{ $message }}</span>
                     @enderror
